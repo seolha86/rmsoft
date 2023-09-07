@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rmsoft.mapper.BookMapper">
+
+    <insert id="register">
+        insert into tbl_book(title, author, category, pubDate, isbn)
+        values(#{title}, #{author}, #{categoryId}, #{pubDate}, #{isbn})
+    </insert>
+
+    <update id="update">
+        update tbl_book set title = #{title}, author = #{author}, category = #{category},
+        pubDate = #{pubDate}, isbn = #{isbn} where bookNum = #{bookNum}
+    </update>
+
+    <update id="borrowAndReturn">
+        update tbl_book set quantity = #{quantity} where bookNum = #{bookNum}
+    </update>
+
+    <select id="retrieve" resultType="com.rmsoft.domain.BookVO">
+        select * from tbl_book
+    </select>
+
+    <select id="findByIsbn" resultType="com.rmsoft.domain.BookVO">
+        select * from tbl_book where isbn = #{isbn}
+    </select>
+
+    <select id="findByBookNum" resultType="com.rmsoft.domain.BookVO">
+        select * from tbl_book where bookNum = #{bookNum}
+    </select>
+</mapper>

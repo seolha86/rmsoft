@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+
+spring:
+  config:
+    import: classpath:/application-datasource.yml

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rmsoft.mapper.HistoryMapper">
+    <insert id="borrowBook">
+        insert into tbl_history(id, bookNum, borrowDate) values(#{id}, #{bookNum}, now())
+    </insert>
+
+    <update id="returnBook">
+        update tbl_history set returnDate = now() where id = #{id} and bookNum = #{bookNum} and returnDate is null
+    </update>
+
+    <select id="findById" resultType="com.rmsoft.domain.HistoryVO">
+        select * from tbl_history where id = #{id} and returnDate is null
+    </select>
+
+    <select id="findByIdAndBookNum" resultType="com.rmsoft.domain.HistoryVO">
+        select * from tbl_history where id = #{id} and bookNum = #{bookNum} order by borrowDate desc limit 1
+    </select>
+
+    <select id="findByHisNum" resultType="com.rmsoft.domain.HistoryVO">
+        select * from tbl_history where hisNum = #{hisNum}
+    </select>
+</mapper>
