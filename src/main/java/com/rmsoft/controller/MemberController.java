@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("member/")
+@RequestMapping("/member/")
 @AllArgsConstructor
 @Slf4j
 public class MemberController {
@@ -55,7 +55,7 @@ public class MemberController {
         if (vo != null) {
             final String token = tokenProvider.create(vo);
             log.info("토큰 : {}", token);
-            return ResponseEntity.ok().body(vo);
+            return ResponseEntity.ok().body(token);
         } else {
             ResponseDTO<?> responseDTO = ResponseDTO.builder().error("Login failed").build();
             return ResponseEntity.badRequest().body(responseDTO);

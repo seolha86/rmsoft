@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("history")
+@RequestMapping("/history")
 @AllArgsConstructor
 @Slf4j
 public class HistoryController {

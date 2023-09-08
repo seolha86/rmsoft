@@ -24,7 +24,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("book/")
+@RequestMapping("/book/")
 @AllArgsConstructor
 @Slf4j
 public class BookController {

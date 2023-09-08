@@ -36,5 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-
+### Data Source ###
 src/main/resources/application-datasource.yml
